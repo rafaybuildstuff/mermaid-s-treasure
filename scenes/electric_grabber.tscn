@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bcqw5i76d42b"]
+
+[ext_resource type="Texture2D" uid="uid://b54b0o2ety3o" path="res://assets/electric trap.png" id="1_ft1wj"]
+[ext_resource type="Script" uid="uid://dlyo4bwroq7ul" path="res://scenes/electric_grabber.gd" id="1_q7muu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
+size = Vector2(18.75, 17.125)
+
+[node name="electric grabber" type="Area2D" unique_id=435199642]
+script = ExtResource("1_q7muu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2081321386]
+position = Vector2(0, -4)
+scale = Vector2(1, 1.2)
+texture = ExtResource("1_ft1wj")
+region_enabled = true
+region_rect = Rect2(10.8652725, 22.54352, 20.111485, 15.411512)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1724875]
+position = Vector2(0, -4.5625)
+shape = SubResource("RectangleShape2D_mel2l")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1573539932]
+z_index = -2
+position = Vector2(0, -59.125)
+scale = Vector2(1, 3.9891305)
+texture = ExtResource("1_ft1wj")
+region_enabled = true
+region_rect = Rect2(16.268324, 0, 8.513226, 23.53248)
