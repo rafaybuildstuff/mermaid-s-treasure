@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://diwfy7rmtcm5k" path="res://player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://bvy2af0yavoxa" path="res://assets/player.png" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://ccqf6eml7ktu1" path="res://scenes/weapon.tscn" id="3_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -124,9 +125,13 @@ height = 38.0
 script = ExtResource("1_3vyb7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=188850792]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_l7xs2")
 animation = &"right idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=690969008]
 position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CapsuleShape2D_efnv4")
+
+[node name="weapon" parent="." unique_id=360285774 instance=ExtResource("3_qhqgy")]

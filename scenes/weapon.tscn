@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ccqf6eml7ktu1"]
+
+[ext_resource type="Script" uid="uid://dt51c6vwudr5d" path="res://weapon.gd" id="1_uxn4k"]
+[ext_resource type="Texture2D" uid="uid://wa5chvqijr64" path="res://assets/weapon.png" id="2_bmw2d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mel2l"]
+radius = 7.0610228
+height = 57.931976
+
+[node name="weapon" type="Area2D" unique_id=360285774]
+script = ExtResource("1_uxn4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1016637634]
+rotation = 0.62133723
+texture = ExtResource("2_bmw2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1466889703]
+rotation = -1.6179202
+shape = SubResource("CapsuleShape2D_mel2l")
+
+[node name="WaveSpawnPoint" type="Node2D" parent="." unique_id=533963233]
+position = Vector2(32, -5)
