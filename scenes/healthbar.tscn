@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dxb0m1ylu8cfl"]
+
+[ext_resource type="Texture2D" uid="uid://syy0k832ix0a" path="res://assets/health bar.png" id="1_8wl12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wl12"]
+atlas = ExtResource("1_8wl12")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulkio"]
+atlas = ExtResource("1_8wl12")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8nn8"]
+atlas = ExtResource("1_8wl12")
+region = Rect2(0, 40, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjxg4"]
+atlas = ExtResource("1_8wl12")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mel2l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wl12")
+}],
+"loop": 1,
+"name": &"1 heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulkio")
+}],
+"loop": 1,
+"name": &"2 heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8nn8")
+}],
+"loop": 1,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjxg4")
+}],
+"loop": 1,
+"name": &"full",
+"speed": 5.0
+}]
+
+[node name="healthbar" type="CanvasLayer" unique_id=246830919]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1355593198]
+position = Vector2(111, 59)
+scale = Vector2(5.3625, 5.3625)
+sprite_frames = SubResource("SpriteFrames_mel2l")
+animation = &"full"

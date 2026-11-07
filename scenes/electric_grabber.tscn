@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
 size = Vector2(18.75, 17.125)
 
-[node name="electric grabber" type="Area2D" unique_id=435199642]
+[node name="electric grabber" type="Area2D" unique_id=263224028]
 script = ExtResource("1_q7muu")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2081321386]

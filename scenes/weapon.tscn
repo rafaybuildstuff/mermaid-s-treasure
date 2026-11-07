@@ -7,7 +7,7 @@
 radius = 7.0610228
 height = 57.931976
 
-[node name="weapon" type="Area2D" unique_id=360285774]
+[node name="weapon" type="Area2D" unique_id=671463445]
 script = ExtResource("1_uxn4k")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1016637634]
