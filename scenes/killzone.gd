@@ -7,9 +7,5 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	# Check if the object entering the zone is the player
 	if body.name == "player" or body.is_in_group("player"):
-		# Option A: Reload the current scene (quickest way to reset the level)
-		get_tree().reload_current_scene()
-		
-		# Option B: If you prefer to teleport them instead of reloading, 
-		# uncomment the line below and point it to a spawn position node:
-		# body.global_position = Vector2(100, 100)
+		# Safely reload the scene at the end of the frame to prevent physics errors
+		get_tree().reload_current_scene.call_deferred()

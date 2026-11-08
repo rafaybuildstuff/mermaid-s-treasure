@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var speed: float = 500.0          
-@export var max_range: float = 400.0      
+@export var speed: float = 500.0       
+@export var max_range: float = 400.0     
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
@@ -77,5 +77,5 @@ func check_hit() -> void:
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body != player and body.has_method("take_damage"):
-			body.take_damage(10)
+			body.take_damage(1) # Changed from 10 to 1 so shark takes 3 hits to die!
 			return_to_player()

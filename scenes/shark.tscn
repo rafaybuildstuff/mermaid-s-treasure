@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dk2u47o7necf0"]
+
+[ext_resource type="Texture2D" uid="uid://dp80kgbejr6ex" path="res://assets/enemy shark.png" id="1_8l5qy"]
+[ext_resource type="Script" uid="uid://c7ugwxxlrhvnr" path="res://scenes/shark.gd" id="1_v5iaq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mel2l"]
+radius = 14.0
+height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
+size = Vector2(234, 272)
+
+[node name="Shark" type="CharacterBody2D" unique_id=1236814567]
+z_index = 5
+motion_mode = 1
+script = ExtResource("1_v5iaq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665629419]
+z_index = 10
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_8l5qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=305921810]
+position = Vector2(4, -4)
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CapsuleShape2D_mel2l")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=985240070]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=406887297]
+position = Vector2(4, 12)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_mel2l")
+
+[node name="Timer" type="Timer" parent="." unique_id=1088336374]
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
