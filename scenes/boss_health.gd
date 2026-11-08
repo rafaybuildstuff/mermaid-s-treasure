@@ -10,6 +10,6 @@ func _ready() -> void:
 
 # This function receives the health value from your boss script
 func update_health_display(current_health: int) -> void:
-	var health = clampi(current_health, 0, 14)
+	var health = clampi(current_health, 0, 15)
 	if animated_sprite:
 		animated_sprite.frame = 15 - health
