@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://bcqw5i76d42b" path="res://scenes/electric_grabber.tscn" id="9_6wevv"]
 [ext_resource type="Script" uid="uid://d1t8dx1okhfb4" path="res://scenes/teleport_area.gd" id="11_mngbo"]
 [ext_resource type="PackedScene" uid="uid://dk2u47o7necf0" path="res://scenes/shark.tscn" id="12_mngbo"]
+[ext_resource type="PackedScene" uid="uid://bacmtx3jeq7tw" path="res://scenes/coin_2.tscn" id="13_r6p65"]
+[ext_resource type="PackedScene" uid="uid://c14tjd0rq1qp5" path="res://scenes/coin_3.tscn" id="14_si52b"]
+[ext_resource type="PackedScene" uid="uid://v6co1tft8ndv" path="res://scenes/coin_4.tscn" id="15_si52b"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mel2l"]
 distance = -286.0
@@ -235,3 +238,14 @@ position = Vector2(1096, -113)
 
 [node name="Shark2" parent="enemies" unique_id=1236814567 groups=["hazards"] instance=ExtResource("12_mngbo")]
 position = Vector2(1861, 205)
+
+[node name="coinss" type="Node" parent="." unique_id=1100808290]
+
+[node name="Coin 3" parent="coinss" unique_id=304350021 instance=ExtResource("14_si52b")]
+position = Vector2(1095, 103)
+
+[node name="Coin 2" parent="coinss" unique_id=836374792 instance=ExtResource("13_r6p65")]
+position = Vector2(389, -228)
+
+[node name="Coin 4" parent="coinss" unique_id=483046241 instance=ExtResource("15_si52b")]
+position = Vector2(1888, -111)

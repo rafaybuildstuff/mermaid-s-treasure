@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bwqplwihqcjp2"]
+
+[ext_resource type="Script" uid="uid://b8snfjix5dhak" path="res://ink.gd" id="1_fno4c"]
+[ext_resource type="Texture2D" uid="uid://cs4um623h0w2r" path="res://assets/boss enemy.png" id="2_yve10"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mel2l"]
+radius = 19.026299
+
+[node name="Ink" type="Area2D" unique_id=1901825101]
+script = ExtResource("1_fno4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1055200537]
+texture = ExtResource("2_yve10")
+region_enabled = true
+region_rect = Rect2(0, 44.302, 40, 35.698)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1133897287]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_mel2l")

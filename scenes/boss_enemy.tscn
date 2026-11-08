@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bharfdrh0pns6"]
+
+[ext_resource type="Script" uid="uid://tfv8wxk8suux" path="res://boss_enemy.gd" id="1_68b1p"]
+[ext_resource type="Texture2D" uid="uid://cs4um623h0w2r" path="res://assets/boss enemy.png" id="2_b8in0"]
+[ext_resource type="PackedScene" uid="uid://bwqplwihqcjp2" path="res://scenes/ink.tscn" id="3_b8in0"]
+[ext_resource type="PackedScene" uid="uid://tsjs5bp5pwve" path="res://scenes/boss_health.tscn" id="4_i5jpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mel2l"]
+radius = 19.625494
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mel2l"]
+size = Vector2(7.839999, 4.4400005)
+
+[node name="boss enemy" type="CharacterBody2D" unique_id=1692653167]
+script = ExtResource("1_68b1p")
+ink_scene = ExtResource("3_b8in0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=441905791]
+scale = Vector2(8, 8)
+texture = ExtResource("2_b8in0")
+region_enabled = true
+region_rect = Rect2(0, 0, 40, 43.8532)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=631656713]
+position = Vector2(16.999998, 0)
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_mel2l")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=1069952464]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1926385146]
+position = Vector2(-182.99998, 13.999996)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_mel2l")
+
+[node name="boss health" parent="." unique_id=1311966132 instance=ExtResource("4_i5jpn")]
