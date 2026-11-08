@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bacmtx3jeq7tw" path="res://scenes/coin_2.tscn" id="13_r6p65"]
 [ext_resource type="PackedScene" uid="uid://c14tjd0rq1qp5" path="res://scenes/coin_3.tscn" id="14_si52b"]
 [ext_resource type="PackedScene" uid="uid://v6co1tft8ndv" path="res://scenes/coin_4.tscn" id="15_si52b"]
+[ext_resource type="AudioStream" uid="uid://bq3w4arawgfoq" path="res://music/background.mp3" id="16_01n6w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mel2l"]
 distance = -286.0
@@ -249,3 +250,10 @@ position = Vector2(389, -228)
 
 [node name="Coin 4" parent="coinss" unique_id=483046241 instance=ExtResource("15_si52b")]
 position = Vector2(1888, -111)
+
+[node name="background music" type="AudioStreamPlayer2D" parent="." unique_id=870467681]
+position = Vector2(0, -3)
+stream = ExtResource("16_01n6w")
+volume_db = 7.0
+autoplay = true
+max_distance = 5000.0

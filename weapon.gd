@@ -1,11 +1,12 @@
 extends Area2D
 
-@export var speed: float = 500.0       
-@export var max_range: float = 400.0     
+@export var speed: float = 500.0        
+@export var max_range: float = 400.0      
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var wave_spawn_point: Node2D = $WaveSpawnPoint
+@onready var weapon_sound: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var player: Node2D = null
 var is_active: bool = false
@@ -34,6 +35,10 @@ func _physics_process(delta: float) -> void:
 func fire_weapon() -> void:
 	is_active = true
 	show_weapon()
+	
+	# Play attack sound effect when weapon fires
+	if weapon_sound:
+		weapon_sound.play()
 	
 	var mouse_pos = get_global_mouse_position()
 	travel_direction = (mouse_pos - player.global_position).normalized()
@@ -77,5 +82,5 @@ func check_hit() -> void:
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body != player and body.has_method("take_damage"):
-			body.take_damage(1) # Changed from 10 to 1 so shark takes 3 hits to die!
+			body.take_damage(1)
 			return_to_player()

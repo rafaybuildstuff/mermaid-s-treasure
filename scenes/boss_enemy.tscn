@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://tfv8wxk8suux" path="res://boss_enemy.gd" id="1_68b1p"]
 [ext_resource type="Texture2D" uid="uid://cs4um623h0w2r" path="res://assets/boss enemy.png" id="2_b8in0"]
 [ext_resource type="PackedScene" uid="uid://bwqplwihqcjp2" path="res://scenes/ink.tscn" id="3_b8in0"]
+[ext_resource type="PackedScene" uid="uid://cw7gvqhvkpt0u" path="res://scenes/treasure.tscn" id="3_w64qe"]
 [ext_resource type="PackedScene" uid="uid://tsjs5bp5pwve" path="res://scenes/boss_health.tscn" id="4_i5jpn"]
+[ext_resource type="AudioStream" uid="uid://cqwjyq1rh3gl2" path="res://music/boss die.mp3" id="6_ro7ma"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mel2l"]
 radius = 19.625494
@@ -14,6 +16,7 @@ size = Vector2(7.839999, 4.4400005)
 [node name="boss enemy" type="CharacterBody2D" unique_id=1692653167]
 script = ExtResource("1_68b1p")
 ink_scene = ExtResource("3_b8in0")
+treasure_scene = ExtResource("3_w64qe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=441905791]
 scale = Vector2(8, 8)
@@ -34,3 +37,8 @@ scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_mel2l")
 
 [node name="boss health" parent="." unique_id=1311966132 instance=ExtResource("4_i5jpn")]
+
+[node name="die sound" type="AudioStreamPlayer2D" parent="." unique_id=837772892]
+stream = ExtResource("6_ro7ma")
+volume_db = 6.0
+max_distance = 4096.0

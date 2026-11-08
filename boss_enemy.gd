@@ -4,10 +4,11 @@ extends CharacterBody2D
 @onready var current_health: int = max_health
 
 @export var ink_scene: PackedScene 
-@onready var detection_area = $DetectionArea
+@export var treasure_scene: PackedScene 
 
-# Expose this in the Inspector so you can drag and drop your health bar node
+@onready var detection_area = $DetectionArea
 @onready var boss_health_bar = get_node_or_null("boss health")
+@onready var boss_die_sound = $"die sound"
 
 var player_in_range: Node2D = null
 var ink_timer: Timer
@@ -25,7 +26,6 @@ func _ready() -> void:
 	ink_timer.timeout.connect(_on_ink_timer_timeout)
 	add_child(ink_timer)
 	
-	# Initialize health bar to full
 	if boss_health_bar:
 		boss_health_bar.update_health_display(current_health)
 
@@ -55,7 +55,6 @@ func take_damage(amount: int) -> void:
 	current_health -= amount
 	print("Boss took damage! Health left: ", current_health, "/", max_health)
 	
-	# Update the health bar display
 	if boss_health_bar:
 		boss_health_bar.update_health_display(current_health)
 	
@@ -64,6 +63,30 @@ func take_damage(amount: int) -> void:
 
 func die() -> void:
 	print("Boss defeated!")
+	
+	# Hide the boss sprite & disable collision immediately so it looks dead
+	$Sprite2D.visible = false
+	if has_node("CollisionShape2D"):
+		$CollisionShape2D.set_deferred("disabled", true)
+	if detection_area:
+		detection_area.monitoring = false
+
+	# Spawn the treasure right away
+	spawn_treasure()
+	
+	# Remove the health bar UI
 	if boss_health_bar:
 		boss_health_bar.queue_free()
+	
+	# Play the sound effect completely before removing the boss node
+	if boss_die_sound:
+		boss_die_sound.play()
+		await boss_die_sound.finished
+	
 	queue_free()
+
+func spawn_treasure() -> void:
+	if treasure_scene:
+		var treasure = treasure_scene.instantiate() as Node2D
+		treasure.global_position = global_position 
+		get_tree().current_scene.add_child(treasure)
